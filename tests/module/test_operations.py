@@ -9,9 +9,12 @@ class TestOperations(unittest.TestCase):
         """
             Tests nominal case for operations.
         """
+
         setup = [(2, 3, add ,5), (2, 3, subtract, -1), (2, 3, multiply, 6), (3, 2, divide, 1.5)]
+        
         for num1, num2, operation, result in setup:
             self.assertEqual(operation(num1, num2), result)
+    
     def test_operations_wrong_inputs_case(self):
         """
         Scenario: wrong input type (string)
@@ -21,3 +24,13 @@ class TestOperations(unittest.TestCase):
         for operation in [add, subtract, multiply, divide]:
             with self.assertRaises(TypeError):
                 operation(2, 'c')
+
+    def test_operations_none_input_case(self):
+        """
+        Scenario: None input type (None)
+        Expected behaviour: should raise a TypeError for all operations
+        """
+
+        for operation in [add, subtract, multiply, divide]:
+            with self.assertRaises(TypeError):
+                operation(2, None)
