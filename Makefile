@@ -1,18 +1,20 @@
 install:
-	pip install pipenv
+	pip3 install pipenv
 
 install-dependencies:
 	pipenv install --system
 
-sync:
+sync: # install dependencies based on Pipfile.lock
 	pipenv sync
-lock:
+lock: # locks dependencies based on Pipfile
 	pipenv lock
-lint:
+lint: # checks formatting of code
 	pipenv run pylint main.py module/
-test:
+test: # tests code with pytest
 	pipenv run pytest tests
 shell:
 	pipenv shell
+list-deps: # lists the dependencies of project using lock file
+	pipenv requirements
 wheel:
-	python setup.py sdist
+	python3 setup.py sdist
