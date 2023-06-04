@@ -1,5 +1,5 @@
 install:
-	pip install pipenv
+	pip3 install pipenv
 
 install-dependencies:
 	pipenv install --system
@@ -15,4 +15,4 @@ test:
 shell:
 	pipenv shell
 wheel:
-	python setup.py sdist
+	python3 setup.py sdist
